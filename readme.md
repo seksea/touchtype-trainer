@@ -5,11 +5,12 @@
 </p>
 
 ![Keyboard](res/keyboard.png)
-A simple python program to improve typing speeds
+A simple python script to improve typing speeds
 #
 ### :page_facing_up: Usage
 1. `pip install -r requirements.txt`
-2. `python3 touchtype.py`
+2. `python3 touchtype.py <letters>`
+   eg. `python3 touchtype.py asdfghjkl;` to practice qwerty home row
 3. The rest should be fairly self explanatory
 4. Profit?
 
