@@ -16,3 +16,4 @@ A simple python script to improve typing speeds
 
 #
 ### :test_tube: Todo:
+- [ ] Actually get it working lmao
