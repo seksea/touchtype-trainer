@@ -50,7 +50,11 @@ def main(stdscr):
     #create sentence list
     sentences = []
     for i in range(0, 5):
-        sentences.append(generate_sentence(random.randint(6, 10), sys.argv[1]))
+        sentences.append(generate_sentence(10, sys.argv[1]))
+    #begin timer
+    start_time = time.time()
+    correct_letters = 0
+    incorrect_letters = 0
     for i in range(0, 5):
         stdscr.clear()
         stdscr.addstr(0, 3, "== Touchtype Trainer ==")
@@ -58,6 +62,22 @@ def main(stdscr):
         for j in range(0, len(sentences[i])):
             stdscr.move(3, 1+j)
             stdscr.refresh()
-            key = stdscr.getkey()
-            stdscr.addstr(3, 1+j, key, curses.color_pair(1 if key == sentences[i][j] else 2))
+            try:
+                key = stdscr.getkey()
+                stdscr.addstr(3, 1+j, key, curses.color_pair(1 if key == sentences[i][j] else 2))
+                if (key == sentences[i][j]):
+                    correct_letters += 1
+                else:
+                    incorrect_letters += 1
+            except:
+                pass
+    time_took = time.time() - start_time
+    print(f"""
+=============
+    STATS
+=============
+Using letters {sys.argv[1]}
+Time: {time_took}
+WPM: {50/(time_took/60)}
+Accuracy: {(incorrect_letters/correct_letters)*100}%""")
 curses.wrapper(main)
