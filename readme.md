@@ -5,7 +5,7 @@
 </p>
 
 ![Keyboard](res/keyboard.png)
-A simple python script to improve typing speeds
+A simple python script to train you to improve typing speeds
 #
 ### :page_facing_up: Usage
 1. `pip install -r requirements.txt`
@@ -16,4 +16,6 @@ A simple python script to improve typing speeds
 
 #
 ### :test_tube: Todo:
-- [ ] Actually get it working lmao
+- [x] Get it working
+- [ ] Add brackets surrounding random bits of text
+- [ ] Add punctuation
