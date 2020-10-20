@@ -1,11 +1,8 @@
-from colorama import Fore, Back, Style
-import colorama
 import time
 import sys
 import random
 import os
-from curses import wrapper
-colorama.init()
+import curses
 
 letters = "abcdefghijklmnopqrstuvwxyz"
 symbols = "1234567890!£$%^&*;:()[]{}|\\\"\'#"
@@ -45,6 +42,8 @@ def generate_sentence(number_of_words : int, letters_used : str) -> str:
     return sentence
 
 def main(stdscr):
+    curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)
+    curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)
     stdscr.clear()
     stdscr.addstr(0, 0, "Generating sentences...")
     stdscr.refresh()
@@ -52,12 +51,13 @@ def main(stdscr):
     sentences = []
     for i in range(0, 5):
         sentences.append(generate_sentence(random.randint(6, 10), sys.argv[1]))
-    stdscr.clear()
     for i in range(0, 5):
+        stdscr.clear()
         stdscr.addstr(0, 3, "== Touchtype Trainer ==")
         stdscr.addstr(2, 1, sentences[i])
         for j in range(0, len(sentences[i])):
-            stdscr.move(2, 1+j)
+            stdscr.move(3, 1+j)
             stdscr.refresh()
-            stdscr.getkey()
-wrapper(main)
+            key = stdscr.getkey()
+            stdscr.addstr(3, 1+j, key, curses.color_pair(1 if key == sentences[i][j] else 2))
+curses.wrapper(main)

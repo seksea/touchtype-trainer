@@ -1,1 +1,1 @@
-colorama
+windows-curses
