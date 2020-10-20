@@ -79,5 +79,5 @@ def main(stdscr):
 Using letters {sys.argv[1]}
 Time: {time_took}
 WPM: {50/(time_took/60)}
-Accuracy: {(incorrect_letters/correct_letters)*100}%""")
+Accuracy: {(correct_letters/(incorrect_letters+correct_letters))*100}%""")
 curses.wrapper(main)
