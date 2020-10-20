@@ -19,3 +19,4 @@ A simple python script to train you to improve typing speeds
 - [x] Get it working
 - [ ] Add brackets surrounding random bits of text
 - [ ] Add punctuation
+- [ ] Preview next sentence
